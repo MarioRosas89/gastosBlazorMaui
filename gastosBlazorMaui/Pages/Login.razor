@@ -1,0 +1,28 @@
+﻿@page "/login"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Forms
+
+<h1>Login</h1>
+
+@if (ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ErrorMessage</div>
+}
+
+<EditForm Model="@Model" OnValidSubmit="@HandleValidSubmit">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <InputText class="form-control" id="username" @bind-Value="@Model.Username" />
+        <ValidationMessage For="@(() => Model.Username)" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <InputText type="password" class="form-control" id="password" @bind-Value="@Model.Password" />
+        <ValidationMessage For="@(() => Model.Password)" />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</EditForm>
+
+@code {
+
+}
